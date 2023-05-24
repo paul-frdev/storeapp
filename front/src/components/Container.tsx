@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 
 interface ContainerProps {
@@ -6,6 +6,6 @@ interface ContainerProps {
 }
 export const Container = ({ children }: ContainerProps) => {
   return (
-    <div className='max-auto max-w-[2120px] px-4 sm:px-2 md:px-10 xl:px-20'>{children}</div>
+    <div className='bg-gray-50 max-auto max-w-[2120px] px-4 sm:px-2 md:px-10 xl:px-20'>{children}</div>
   )
 }
