@@ -4,7 +4,7 @@ import { Input } from '../../inputs/Input';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { Heading } from '../Heading';
 import { MuiButton } from '../MuiButton';
-import { MuiCheckbox } from '../MuiCheckbox';
+import { MuiCheckbox } from '../../inputs/MuiCheckbox';
 import { Link } from 'react-router-dom';
 
 export const LoginForm = () => {
@@ -41,12 +41,12 @@ export const LoginForm = () => {
               <Input showPassword setVisible={setVisible} visible={visible} id='password' label='password' type={visible ? 'text' : 'password'} errors={errors} register={register} />
             </Box>
             <Box className='flex justify-between items-center'>
-              <MuiCheckbox label="Remember-me" errors={errors} register={register} id='rememberMe' />
+              <MuiCheckbox label="Remember me" errors={errors} register={register} id='rememberMe' />
               <a href="/forgot-password" className='font-medium text-blue-600 hover:text-blue-500'>
                 Forgot your password?
               </a>
             </Box>
-            <Box className='flex justify-start items-center'>
+            <Box className='flex justifynt-start items-center'>
               <MuiButton label='Submit' variant="contained" type="submit" />
             </Box>
             <Box className='flex justify-start items-center'>

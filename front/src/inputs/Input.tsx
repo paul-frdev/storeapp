@@ -24,7 +24,7 @@ export const Input: React.FC<InputProps> = ({
   errors,
   visible,
   setVisible,
-  showPassword = false
+  showPassword = false,
 }) => {
   return (
     <div className='relative w-full'>
@@ -34,11 +34,13 @@ export const Input: React.FC<InputProps> = ({
         {...register(id, { required })}
         placeholder=' '
         type={type}
-        className={`peer w-full rounded-md border border-gray-300 shadow-sm px-3 py-3 font-light focus:border-blue-500 focus:ring-blue-500 outline-none transition disabled:cursor-not-allowed disabled:opacity-70
+        className={`peer w-full rounded-md border border-gray-300 shadow-sm px-3 py-3 pb-2 font-light focus:border-blue-500 focus:ring-blue-500 outline-none transition disabled:cursor-not-allowed disabled:opacity-70 tracking-wide
+        ${showPassword && 'tracking-[1px]'}
         ${errors[id]
             ? 'border-rose-500 focus:border-rose-500'
             : 'border-neutral-300 focus:border-black'
           }
+          ${type === 'file' && 'border-transparent'}
         `}
       />
       <label

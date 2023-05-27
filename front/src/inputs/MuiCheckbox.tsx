@@ -3,8 +3,6 @@ import Checkbox from '@mui/material/Checkbox';
 import { Box, FormControlLabel } from '@mui/material';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
 interface MuiCheckboxPorps {
   id: string;
   name?: string;
@@ -18,10 +16,8 @@ export const MuiCheckbox: FC<MuiCheckboxPorps> = ({ id, label, disabled, require
   return (
     <Box>
       <FormControlLabel
-        value="top"
         label={label}
         control={<Checkbox
-          {...label}
           disabled={disabled}
           {...register(id, { required })}
           sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }}
