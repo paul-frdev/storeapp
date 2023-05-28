@@ -13,6 +13,9 @@ interface InputProps {
   showPassword?: boolean;
   visible?: boolean;
   setVisible?: (data: boolean) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  name?: string;
+  accept?: string;
 }
 export const Input: React.FC<InputProps> = ({
   id,
@@ -25,6 +28,9 @@ export const Input: React.FC<InputProps> = ({
   visible,
   setVisible,
   showPassword = false,
+  onChange,
+  name,
+  accept
 }) => {
   return (
     <div className='relative w-full'>
@@ -32,6 +38,9 @@ export const Input: React.FC<InputProps> = ({
         id={id}
         disabled={disabled}
         {...register(id, { required })}
+        name={name}
+        accept={accept}
+        onChange={onChange}
         placeholder=' '
         type={type}
         className={`peer w-full rounded-md border border-gray-300 shadow-sm px-3 py-3 pb-2 font-light focus:border-blue-500 focus:ring-blue-500 outline-none transition disabled:cursor-not-allowed disabled:opacity-70 tracking-wide
@@ -40,7 +49,7 @@ export const Input: React.FC<InputProps> = ({
             ? 'border-rose-500 focus:border-rose-500'
             : 'border-neutral-300 focus:border-black'
           }
-          ${type === 'file' && 'border-transparent'}
+          ${type === 'file' && 'border-transparent  focus:border-transparent sr-only'}
         `}
       />
       <label
@@ -51,6 +60,9 @@ export const Input: React.FC<InputProps> = ({
       >
         {label}
       </label>
+      {errors[id] && (
+        <span className='text-rose-500 font-semibold text-sm'>{errors.root?.message}</span>
+      )}
       {showPassword && (
         visible ? (
           <AiOutlineEye
