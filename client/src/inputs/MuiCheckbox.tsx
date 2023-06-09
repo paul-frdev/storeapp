@@ -3,7 +3,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { Box, FormControlLabel } from '@mui/material';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 
-interface MuiCheckboxPorps {
+interface MuiCheckboxProps {
   id: string;
   name?: string;
   disabled?: boolean;
@@ -12,7 +12,7 @@ interface MuiCheckboxPorps {
   errors: FieldErrors;
   label?: any;
 }
-export const MuiCheckbox: FC<MuiCheckboxPorps> = ({ id, label, disabled, required, register, errors }) => {
+export const MuiCheckbox: FC<MuiCheckboxProps> = ({ id, label, disabled, required, register, errors }) => {
   return (
     <Box>
       <FormControlLabel
