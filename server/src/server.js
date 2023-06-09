@@ -1,5 +1,8 @@
+const { startMongoDb } = require("../db/Database");
 const app = require("./app");
 const http = require("node:http");
+
+require("dotenv").config();
 
 // handling uncaught errors exception
 process.on("uncaughtException", (error) => {
@@ -15,14 +18,18 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 //create server
-
 const server = http.createServer(app);
 
-server.listen(process.env.PORT, () => {
-  console.log(
-    `Server is running on http://localhost:${process.env.PORT || 8000}`
-  );
-});
+async function startServer() {
+  await startMongoDb();
+  server.listen(process.env.PORT, () => {
+    console.log(
+      `Server is running on http://localhost:${process.env.PORT || 5000}`
+    );
+  });
+}
+
+startServer();
 
 // unhandled promise rejection
 process.on("unhandledRejection", (error) => {
